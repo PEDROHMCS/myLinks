@@ -92,7 +92,7 @@ body {
 
   border-radius: 50%;
 
-  outline: none;
+  outline: 6px solid transparent;
   border: none;
 
   background: #fff var(--switcher-icon) no-repeat center;
@@ -102,14 +102,16 @@ body {
   bottom: 0;
   left: 0;
   z-index: 1;
-  transform: translateX(0px);
-  transition: transfrom 0.2s linear;
+  animation: switcherBackAnimation 0.3s ease-out;
+  transition: 0.4s;
+}
+
+#switch button:hover {
+  outline: 6px solid var(--highlight-color);
 }
 
 .light #switch button {
-  transition: transfrom 0.2s linear;
-  left: 0;
-  transform: translateX(100%);
+  animation: switcherAnimation 0.3s forwards ease-in;
 }
 
 #switch span {
@@ -211,5 +213,25 @@ Elementos do tipo block, aceitam margin auto para centralização */
 
   .light {
     --background: url(./assets/bg-desktop-light.jpg);
+  }
+}
+
+/*Animations*/
+
+@keyframes switcherAnimation {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes switcherBackAnimation {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0px);
   }
 }
