@@ -8,24 +8,23 @@
 
 :root {
   --text-color: white;
-  --background: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
-  --background-desktop: url(./assets/bg-desktop.jpg);
   --surface-color: rgba(255, 255, 255, 0.1);
   --surface-color-hover: rgba(255, 255, 255, 0.05);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switcher-icon: url(./assets/MoonStars.svg);
+  --background: #0c120c;
 }
 
 .light {
   --text-color: black;
-  --background: url(./assets/bg-mobile-light.jpg);
-  --background-desktop: url(./assets/bg-desktop-light.jpg);
+  --background: #ecebf3;
   --stroke-color: rgba(0, 0, 0, 0.5);
   --surface-color: rgba(0, 0, 0, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(0, 0, 0, 0.1);
   --switcher-icon: url(./assets/Sun.svg);
+  animation: transBlack 0.2s ease-in;
 }
 
 body * {
@@ -43,8 +42,12 @@ body {
   cor image-url repeat position/size  
 */
 
-  background: var(--background) no-repeat top center/cover;
+  background-color: var(--background);
   height: 100vh;
+}
+
+.transToWhite {
+  animation: transWhite 0.2s ease-out;
 }
 
 #container {
@@ -208,11 +211,11 @@ Elementos do tipo block, aceitam margin auto para centralização */
 @media (min-width: 700px) {
   :root {
     --text-color: white;
-    --background: url(./assets/bg-desktop.jpg);
+    --background: #0c120c;
   }
 
   .light {
-    --background: url(./assets/bg-desktop-light.jpg);
+    --background: #ecebf3;
   }
 }
 
@@ -233,5 +236,25 @@ Elementos do tipo block, aceitam margin auto para centralização */
   }
   to {
     transform: translateX(0px);
+  }
+}
+
+@keyframes transBlack {
+  0% {
+    background-color: #0c120c;
+  }
+
+  100% {
+    background-color: #ecebf3;
+  }
+}
+
+@keyframes transWhite {
+  0% {
+    background-color: #ecebf3;
+  }
+
+  100% {
+    background-color: #0c120c;
   }
 }
